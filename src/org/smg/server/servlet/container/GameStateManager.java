@@ -8,7 +8,8 @@ import java.util.Map;
 import org.smg.server.servlet.container.GameApi.GameState;
 import org.smg.server.servlet.container.GameApi.Operation;
 
-import com.google.appengine.labs.repackaged.com.google.common.collect.Maps;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 
 public class GameStateManager {
     private static GameStateManager instance = null;
@@ -25,7 +26,9 @@ public class GameStateManager {
     }
 
     private void generateTestData() {
-
+        String as = "HASHACCESSSIGNATURE";
+        gameStateMap.put(as, new GameState());
+        playerAsIdMap.put(as, 42);
     }
 
     public static GameStateManager getInstance() {
@@ -67,5 +70,12 @@ public class GameStateManager {
 
     public int getPlayerIdByAccessSignature(String as) {
         return playerAsIdMap.get(as);
+    }
+
+    /*
+     * TODO implement this.
+     */
+    public List<GameState> getHistoryState(int matchId, String accessSignature) {
+        return Lists.newArrayList();
     }
 }
