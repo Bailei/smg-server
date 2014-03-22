@@ -30,7 +30,7 @@ public class MatchOperationServlet extends HttpServlet {
 
         CORSUtil.addCORSHeader(resp);
         int matchId = Integer.parseInt(req.getPathInfo().substring(1));
-        System.out.println(matchId);
+
         resp.setHeader("Content-Type", "application/json");
         String accessSignature = req.getParameter(Constants.JSON_ACCESS_SIGNATURE);
 
